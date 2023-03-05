@@ -57,6 +57,7 @@ const Header_STY = styled.div`
     }
     .gnb .submenu {
         font-size: 16px;
+        font-weight: 300;
     }
 `
 
