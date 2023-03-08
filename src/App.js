@@ -1,6 +1,8 @@
 import Header from "./pages/Header";
 import HIGHLIGHTS from "./pages/HIGHLIGHTS";
 import Slide from "./pages/MainSlide";
+import Static_parbase from "./pages/Static_parbase";
+
 
 const App = () => {
     return (
@@ -8,6 +10,7 @@ const App = () => {
             <Header />
             <Slide />
             <HIGHLIGHTS />
+            <Static_parbase />
         </>
     )
 }
