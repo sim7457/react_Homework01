@@ -1,15 +1,20 @@
 import "slick-carousel/slick/slick.css";
 import Slider from "react-slick";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useRef, useState } from "react";
+import { DEFAULT_CONTENTS } from "./data/default";
 
-const dd = [
-  1, 2, 3, 4, 5
-];
-
+const dd = Array.from({ length: 5 });
 const Itm = styled.div`
-  background: #333;
+  //background: #333;
   height: 600px;
+  color: #fff;
+  white-space: pre-wrap;
+  ${(props) =>
+    css`
+      background: url(${process.env.PUBLIC_URL +
+      `/assets/bg0${props.bg + 1}.jpg`});
+    `}
 `;
 
 const Dots = styled.ul`
@@ -18,14 +23,13 @@ const Dots = styled.ul`
   position: absolute;
   top: 80%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   margin: 0 0 0 350px;
-  
 `;
 const DotsItm = styled.li`
   width: 100px;
   height: 5px;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
   &.on {
     background: #fff;
   }
@@ -46,8 +50,8 @@ const Slide = () => {
   return (
     <SlideWrapper>
       <Slider {...option} ref={slide}>
-        {dd.map((it) => (
-          <Itm>{it}</Itm>
+        {dd.map((it, idx) => (
+          <Itm bg={idx}>{DEFAULT_CONTENTS[idx].title}</Itm>
         ))}
       </Slider>
       <Dots>
